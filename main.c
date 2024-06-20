@@ -39,7 +39,7 @@ typedef struct {
     int numeroQuarto;
 } Estadia;
 
-// FunÁ„o para calcular a diferenÁa em dias entre duas datas
+// Fun√ß√£o para calcular a diferen√ßa em dias entre duas datas
 int calcularNumeroNoites(const char *dataCheckInStr, const char *dataCheckOutStr) {
     int diaCheckIn, mesCheckIn, anoCheckIn;
     int diaCheckOut, mesCheckOut, anoCheckOut;
@@ -47,21 +47,21 @@ int calcularNumeroNoites(const char *dataCheckInStr, const char *dataCheckOutStr
     sscanf(dataCheckInStr, "%d/%d/%d", &diaCheckIn, &mesCheckIn, &anoCheckIn);
     sscanf(dataCheckOutStr, "%d/%d/%d", &diaCheckOut, &mesCheckOut, &anoCheckOut);
 
-    // C·lculo da diferenÁa em dias
+    // C√°lculo da diferen√ßa em dias
     int diasCheckIn = anoCheckIn * 365 + mesCheckIn * 30 + diaCheckIn;
     int diasCheckOut = anoCheckOut * 365 + mesCheckOut * 30 + diaCheckOut;
 
     return diasCheckOut - diasCheckIn;
 }
 
-// FunÁ„o para formatar a data do formato DDMMYYYY para DD/MM/YYYY
+// Fun√ß√£o para formatar a data do formato DDMMYYYY para DD/MM/YYYY
 void formatarData(char *data) {
     char novaData[11];
     snprintf(novaData, sizeof(novaData), "%.2s/%.2s/%.4s", data, data + 2, data + 4);
     strcpy(data, novaData);
 }
 
-// FunÁ„o para criar uma string de data no formato DD/MM/YYYY a partir do dia, mÍs e ano
+// Fun√ß√£o para criar uma string de data no formato DD/MM/YYYY a partir do dia, m√™s e ano
 void criarData(char *data, int dia, int mes, int ano) {
     snprintf(data, 11, "%02d/%02d/%04d", dia, mes, ano);
 }
@@ -70,11 +70,11 @@ void registrarCliente() {
     Cliente cliente;
     int encontrado = 0;
 
-    printf("Digite o cÛdigo do cliente: ");
+    printf("Digite o c√≥digo do cliente: ");
     scanf("%d", &cliente.codigo);
     printf("Digite o nome do cliente: ");
     scanf(" %[^\n]s", cliente.nome);
-    printf("Digite o endereÁo do cliente: ");
+    printf("Digite o endere√ßo do cliente: ");
     scanf(" %[^\n]s", cliente.endereco);
     printf("Digite o telefone do cliente: ");
     scanf(" %[^\n]s", cliente.telefone);
@@ -97,7 +97,7 @@ void registrarCliente() {
         fclose(arquivoEscrita);
         printf("Cliente registrado com sucesso!\n");
     } else {
-        printf("CÛdigo de cliente j· existe. Registro falhou.\n");
+        printf("C√≥digo de cliente j√° existe. Registro falhou.\n");
     }
 }
 
@@ -105,15 +105,15 @@ void registrarFuncionario() {
     Funcionario funcionario;
     int encontrado = 0;
 
-    printf("Digite o cÛdigo do funcion·rio: ");
+    printf("Digite o c√≥digo do funcion√°rio: ");
     scanf("%d", &funcionario.codigo);
-    printf("Digite o nome do funcion·rio: ");
+    printf("Digite o nome do funcion√°rio: ");
     scanf(" %[^\n]s", funcionario.nome);
-    printf("Digite o telefone do funcion·rio: ");
+    printf("Digite o telefone do funcion√°rio: ");
     scanf(" %[^\n]s", funcionario.telefone);
-    printf("Digite a funÁ„o do funcion·rio: ");
+    printf("Digite a fun√ß√£o do funcion√°rio: ");
     scanf(" %[^\n]s", funcionario.funcao);
-    printf("Digite o sal·rio do funcion·rio: ");
+    printf("Digite o sal√°rio do funcion√°rio: ");
     scanf("%lf", &funcionario.salario);
 
     FILE *arquivoLeitura = fopen("funcionarios.txt", "r");
@@ -132,9 +132,9 @@ void registrarFuncionario() {
         FILE *arquivoEscrita = fopen("funcionarios.txt", "a");
         fprintf(arquivoEscrita, "%d\n%s\n%s\n%s\n%lf\n", funcionario.codigo, funcionario.nome, funcionario.telefone, funcionario.funcao, funcionario.salario);
         fclose(arquivoEscrita);
-        printf("Funcion·rio registrado com sucesso!\n");
+        printf("Funcion√°rio registrado com sucesso!\n");
     } else {
-        printf("CÛdigo de funcion·rio j· existe. Registro falhou.\n");
+        printf("C√≥digo de funcion√°rio j√° existe. Registro falhou.\n");
     }
 }
 
@@ -142,11 +142,11 @@ void registrarQuarto() {
     Quarto quarto;
     int encontrado = 0;
 
-    printf("Digite o n˙mero do quarto: ");
+    printf("Digite o n√∫mero do quarto: ");
     scanf("%d", &quarto.numeroQuarto);
-    printf("Digite a capacidade de hÛspedes: ");
+    printf("Digite a capacidade de h√≥spedes: ");
     scanf("%d", &quarto.capacidadeHospedes);
-    printf("Digite a taxa di·ria: ");
+    printf("Digite a taxa di√°ria: ");
     scanf("%lf", &quarto.taxaDiaria);
     strcpy(quarto.status, "vago");
 
@@ -168,7 +168,7 @@ void registrarQuarto() {
         fclose(arquivoEscrita);
         printf("Quarto registrado com sucesso!\n");
     } else {
-        printf("N˙mero do quarto j· existe. Registro falhou.\n");
+        printf("N√∫mero do quarto j√° existe. Registro falhou.\n");
     }
 }
 
@@ -177,13 +177,13 @@ void registrarEstadia() {
     int clienteEncontrado = 0, quartoEncontrado = 0, estadiaValida = 1;
     int diaCheckIn, mesCheckIn, anoCheckIn, diaCheckOut, mesCheckOut, anoCheckOut;
 
-    printf("Digite o cÛdigo da estadia: ");
+    printf("Digite o c√≥digo da estadia: ");
     scanf("%d", &estadia.codigo);
 
     printf("Digite a data de check-in:\n");
     printf("Dia: ");
     scanf("%d", &diaCheckIn);
-    printf("MÍs: ");
+    printf("M√™s: ");
     scanf("%d", &mesCheckIn);
     printf("Ano: ");
     scanf("%d", &anoCheckIn);
@@ -192,27 +192,27 @@ void registrarEstadia() {
     printf("Digite a data de check-out:\n");
     printf("Dia: ");
     scanf("%d", &diaCheckOut);
-    printf("MÍs: ");
+    printf("M√™s: ");
     scanf("%d", &mesCheckOut);
     printf("Ano: ");
     scanf("%d", &anoCheckOut);
     criarData(estadia.dataCheckOut, diaCheckOut, mesCheckOut, anoCheckOut);
 
-    // Verificar se a data de check-out È posterior ‡ data de check-in
+    // Verificar se a data de check-out √© posterior √† data de check-in
     if (strcmp(estadia.dataCheckIn, estadia.dataCheckOut) >= 0) {
-        printf("Datas inv·lidas. A data de check-out deve ser posterior ‡ data de check-in. Registro de estadia falhou.\n");
+        printf("Datas inv√°lidas. A data de check-out deve ser posterior √† data de check-in. Registro de estadia falhou.\n");
         return;
     }
 
     estadia.numeroNoites = calcularNumeroNoites(estadia.dataCheckIn, estadia.dataCheckOut);
     if (estadia.numeroNoites <= 0) {
-        printf("Datas inv·lidas. Registro de estadia falhou.\n");
+        printf("Datas inv√°lidas. Registro de estadia falhou.\n");
         return;
     }
 
-    printf("Digite o cÛdigo do cliente: ");
+    printf("Digite o c√≥digo do cliente: ");
     scanf("%d", &estadia.codigoCliente);
-    printf("Digite o n˙mero do quarto: ");
+    printf("Digite o n√∫mero do quarto: ");
     scanf("%d", &estadia.numeroQuarto);
 
     // Verificar se o cliente existe
@@ -229,11 +229,11 @@ void registrarEstadia() {
     }
 
     if (!clienteEncontrado) {
-        printf("CÛdigo de cliente n„o encontrado. Registro de estadia falhou.\n");
+        printf("C√≥digo de cliente n√£o encontrado. Registro de estadia falhou.\n");
         return;
     }
 
-    // Verificar se o quarto existe e est· disponÌvel
+    // Verificar se o quarto existe e est√° dispon√≠vel
     FILE *arquivoLeituraQuarto = fopen("quartos.txt", "r");
     FILE *arquivoEscritaQuartoTemp = fopen("quartos_temp.txt", "w");
     if (arquivoLeituraQuarto != NULL && arquivoEscritaQuartoTemp != NULL) {
@@ -243,7 +243,7 @@ void registrarEstadia() {
                 quartoEncontrado = 1;
                 if (strcmp(tempQuarto.status, "ocupado") == 0) {
                     estadiaValida = 0;
-                    printf("Quarto j· est· ocupado. Registro de estadia falhou.\n");
+                    printf("Quarto j√° est√° ocupado. Registro de estadia falhou.\n");
                 } else {
                     strcpy(tempQuarto.status, "ocupado");
                 }
@@ -257,7 +257,7 @@ void registrarEstadia() {
     }
 
     if (!quartoEncontrado) {
-        printf("N˙mero de quarto n„o encontrado. Registro de estadia falhou.\n");
+        printf("N√∫mero de quarto n√£o encontrado. Registro de estadia falhou.\n");
         return;
     }
 
@@ -274,9 +274,9 @@ void listarClientes() {
     if (arquivoLeitura != NULL) {
         Cliente cliente;
         while (fscanf(arquivoLeitura, "%d %[^\n] %[^\n] %[^\n]", &cliente.codigo, cliente.nome, cliente.endereco, cliente.telefone) == 4) {
-            printf("CÛdigo: %d\n", cliente.codigo);
+            printf("C√≥digo: %d\n", cliente.codigo);
             printf("Nome: %s\n", cliente.nome);
-            printf("EndereÁo: %s\n", cliente.endereco);
+            printf("Endere√ßo: %s\n", cliente.endereco);
             printf("Telefone: %s\n", cliente.telefone);
             printf("--------------------\n");
         }
@@ -291,16 +291,16 @@ void listarFuncionarios() {
     if (arquivoLeitura != NULL) {
         Funcionario funcionario;
         while (fscanf(arquivoLeitura, "%d %[^\n] %[^\n] %[^\n] %lf", &funcionario.codigo, funcionario.nome, funcionario.telefone, funcionario.funcao, &funcionario.salario) == 5) {
-            printf("CÛdigo: %d\n", funcionario.codigo);
+            printf("C√≥digo: %d\n", funcionario.codigo);
             printf("Nome: %s\n", funcionario.nome);
             printf("Telefone: %s\n", funcionario.telefone);
-            printf("FunÁ„o: %s\n", funcionario.funcao);
-            printf("Sal·rio: %.2lf\n", funcionario.salario);
+            printf("Fun√ß√£o: %s\n", funcionario.funcao);
+            printf("Sal√°rio: %.2lf\n", funcionario.salario);
             printf("--------------------\n");
         }
         fclose(arquivoLeitura);
     } else {
-        printf("Erro ao abrir o arquivo de funcion·rios.\n");
+        printf("Erro ao abrir o arquivo de funcion√°rios.\n");
     }
 }
 
@@ -309,9 +309,9 @@ void listarQuartos() {
     if (arquivoLeitura != NULL) {
         Quarto quarto;
         while (fscanf(arquivoLeitura, "%d %d %lf %[^\n]", &quarto.numeroQuarto, &quarto.capacidadeHospedes, &quarto.taxaDiaria, quarto.status) == 4) {
-            printf("N˙mero do quarto: %d\n", quarto.numeroQuarto);
-            printf("Capacidade de hÛspedes: %d\n", quarto.capacidadeHospedes);
-            printf("Taxa di·ria: %.2lf\n", quarto.taxaDiaria);
+            printf("N√∫mero do quarto: %d\n", quarto.numeroQuarto);
+            printf("Capacidade de h√≥spedes: %d\n", quarto.capacidadeHospedes);
+            printf("Taxa di√°ria: %.2lf\n", quarto.taxaDiaria);
             printf("Status: %s\n", quarto.status);
             printf("--------------------\n");
         }
@@ -326,12 +326,12 @@ void listarEstadias() {
     if (arquivoLeitura != NULL) {
         Estadia estadia;
         while (fscanf(arquivoLeitura, "%d %[^\n] %[^\n] %d %d %d", &estadia.codigo, estadia.dataCheckIn, estadia.dataCheckOut, &estadia.numeroNoites, &estadia.codigoCliente, &estadia.numeroQuarto) == 6) {
-            printf("CÛdigo: %d\n", estadia.codigo);
+            printf("C√≥digo: %d\n", estadia.codigo);
             printf("Data de check-in: %s\n", estadia.dataCheckIn);
             printf("Data de check-out: %s\n", estadia.dataCheckOut);
-            printf("N˙mero de noites: %d\n", estadia.numeroNoites);
-            printf("CÛdigo do cliente: %d\n", estadia.codigoCliente);
-            printf("N˙mero do quarto: %d\n", estadia.numeroQuarto);
+            printf("N√∫mero de noites: %d\n", estadia.numeroNoites);
+            printf("C√≥digo do cliente: %d\n", estadia.codigoCliente);
+            printf("N√∫mero do quarto: %d\n", estadia.numeroQuarto);
             printf("--------------------\n");
         }
         fclose(arquivoLeitura);
@@ -340,7 +340,7 @@ void listarEstadias() {
     }
 }
 
-// FunÁ„o para ler os dados de estadia de um arquivo
+// Fun√ß√£o para ler os dados de estadia de um arquivo
 int lerEstadiaPorCodigo(int codigo, Estadia *estadia) {
     FILE *arquivoLeitura = fopen("estadias.txt", "r");
     if (arquivoLeitura == NULL) {
@@ -356,12 +356,12 @@ int lerEstadiaPorCodigo(int codigo, Estadia *estadia) {
     }
 
     fclose(arquivoLeitura);
-    return 0; // Estadia n„o encontrada
+    return 0; // Estadia n√£o encontrada
 }
 
 void cancelarEstadia() {
     int codigoEstadia;
-    printf("Digite o cÛdigo da estadia que deseja cancelar: ");
+    printf("Digite o c√≥digo da estadia que deseja cancelar: ");
     scanf("%d", &codigoEstadia);
 
     FILE *arquivoLeitura = fopen("estadias.txt", "r");
@@ -387,8 +387,8 @@ void cancelarEstadia() {
     fclose(arquivoEscritaTemp);
 
     if (!encontrada) {
-        printf("Estadia n„o encontrada. Cancelamento falhou.\n");
-        remove("estadias_temp.txt"); // Remove o arquivo tempor·rio
+        printf("Estadia n√£o encontrada. Cancelamento falhou.\n");
+        remove("estadias_temp.txt"); // Remove o arquivo tempor√°rio
     } else {
         remove("estadias.txt");
         rename("estadias_temp.txt", "estadias.txt");
@@ -400,18 +400,18 @@ void menu() {
     int opcao;
 
     do {
-        printf("========== MENU ==========\n");
+        printf("========== Sistema Hotelaria MF ==========\n");
         printf("1 - Registrar cliente\n");
-        printf("2 - Registrar funcion·rio\n");
+        printf("2 - Registrar funcion√°rio\n");
         printf("3 - Registrar quarto\n");
         printf("4 - Registrar estadia\n");
         printf("5 - Listar clientes\n");
-        printf("6 - Listar funcion·rios\n");
+        printf("6 - Listar funcion√°rios\n");
         printf("7 - Listar quartos\n");
         printf("8 - Listar estadias\n");
         printf("9 - Cancelar estadias\n");
         printf("0 - Sair\n");
-        printf("Escolha uma opÁ„o: ");
+        printf("Escolha uma op√ß√£o: ");
         scanf("%d", &opcao);
 
 switch (opcao) {
@@ -446,7 +446,7 @@ switch (opcao) {
         printf("Encerrando o programa...\n");
         break;
     default:
-        printf("OpÁ„o inv·lida. Tente novamente.\n");
+        printf("Op√ß√£o inv√°lida. Tente novamente.\n");
 }
 
     } while (opcao != 0);
