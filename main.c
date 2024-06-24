@@ -1,3 +1,5 @@
+//Integrantes:Matheus Fróes//
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -66,6 +68,8 @@ void criarData(char *data, int dia, int mes, int ano) {
     snprintf(data, 11, "%02d/%02d/%04d", dia, mes, ano);
 }
 
+//Função para registrar cliente//
+
 void registrarCliente() {
     Cliente cliente;
     int encontrado = 0;
@@ -100,6 +104,8 @@ void registrarCliente() {
         printf("Código de cliente já existe. Registro falhou.\n");
     }
 }
+
+//Função para registrar funcionário//
 
 void registrarFuncionario() {
     Funcionario funcionario;
@@ -138,6 +144,8 @@ void registrarFuncionario() {
     }
 }
 
+//Função para registrar Quarto//
+
 void registrarQuarto() {
     Quarto quarto;
     int encontrado = 0;
@@ -171,6 +179,8 @@ void registrarQuarto() {
         printf("Número do quarto já existe. Registro falhou.\n");
     }
 }
+
+//Função para registrar estadia//
 
 void registrarEstadia() {
     Estadia estadia;
@@ -269,6 +279,8 @@ void registrarEstadia() {
     }
 }
 
+//Função para listar clientes//
+
 void listarClientes() {
     FILE *arquivoLeitura = fopen("clientes.txt", "r");
     if (arquivoLeitura != NULL) {
@@ -285,6 +297,8 @@ void listarClientes() {
         printf("Erro ao abrir o arquivo de clientes.\n");
     }
 }
+
+//Função para registrar funcionários//
 
 void listarFuncionarios() {
     FILE *arquivoLeitura = fopen("funcionarios.txt", "r");
@@ -304,6 +318,8 @@ void listarFuncionarios() {
     }
 }
 
+//Função para listar quartos//
+
 void listarQuartos() {
     FILE *arquivoLeitura = fopen("quartos.txt", "r");
     if (arquivoLeitura != NULL) {
@@ -320,6 +336,8 @@ void listarQuartos() {
         printf("Erro ao abrir o arquivo de quartos.\n");
     }
 }
+
+//Função para listar estadias//
 
 void listarEstadias() {
     FILE *arquivoLeitura = fopen("estadias.txt", "r");
@@ -359,6 +377,8 @@ int lerEstadiaPorCodigo(int codigo, Estadia *estadia) {
     return 0; // Estadia não encontrada
 }
 
+//Função para cancelar estadias//
+
 void cancelarEstadia() {
     int codigoEstadia;
     printf("Digite o código da estadia que deseja cancelar: ");
@@ -396,11 +416,13 @@ void cancelarEstadia() {
     }
 }
 
+
+//Função que mostra as opções do menu//
 void menu() {
     int opcao;
 
     do {
-        printf("========== Sistema Hotelaria MF ==========\n");
+        printf("========== Sistema de Hotelaria ==========\n");
         printf("1 - Registrar cliente\n");
         printf("2 - Registrar funcionário\n");
         printf("3 - Registrar quarto\n");
